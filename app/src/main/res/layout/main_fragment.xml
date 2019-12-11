@@ -123,7 +123,7 @@
     <jp.kuluna.calendarviewpager.CalendarViewPager
         android:id="@+id/calendar_view_pager"
         android:layout_width="match_parent"
-        android:layout_height="509dp"
+        android:layout_height="409dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:padding="4dp"
