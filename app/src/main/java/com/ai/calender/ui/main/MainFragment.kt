@@ -29,8 +29,9 @@ class MainFragment : Fragment() {
     ): View {
         return inflater.inflate(R.layout.main_fragment, container, false).rootView.also {
             textMonth = it.findViewById(R.id.text_month)
+
             val viewPager = it.findViewById<CalendarViewPager>(R.id.calendar_view_pager)
-            viewPager.adapter = CustomCalendarAdapter(requireContext())
+            viewPager.adapter = CustomCalendarAdapter(requireContext(), createSpDateList())
             setDateHeader(Calendar.getInstance())
 
             viewPager.onDayClickListener = { day: Day ->
