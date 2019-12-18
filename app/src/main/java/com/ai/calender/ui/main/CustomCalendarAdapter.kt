@@ -49,9 +49,6 @@ class CustomCalendarAdapter(
                 Color.GRAY
             )
 
-            // 六曜
-            view.findViewById<TextView>(R.id.text_rokuyou).text = getRokuyou(day.calendar)
-
             spDateList.find {
                 it.calendar.get(Calendar.YEAR) == day.calendar.get(Calendar.YEAR) &&
                         it.calendar.get(Calendar.MONTH) == day.calendar.get(Calendar.MONTH) &&
@@ -60,6 +57,8 @@ class CustomCalendarAdapter(
                 if (it.isIchiryumanbai) view.findViewById<ConstraintLayout>(R.id.background).setBackgroundColor(
                     Color.RED
                 )
+                // 六曜
+                view.findViewById<TextView>(R.id.text_rokuyou).text = it.rokuyou.name
             }
 
         } else {
@@ -74,14 +73,6 @@ class CustomCalendarAdapter(
             holiday = Holiday.getHoliday(it)
         }
         return holiday != null
-    }
-
-    private fun getRokuyou(calendar: Calendar): String {
-        return Kyureki.RokuYo(
-            calendar.get(Calendar.YEAR),
-            calendar.get(Calendar.MONTH),
-            calendar.get(Calendar.DAY_OF_MONTH)
-        )
     }
 }
 
